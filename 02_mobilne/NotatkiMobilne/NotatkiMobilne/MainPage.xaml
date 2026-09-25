@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotatkiMobilne.MainPage"
+             Title="Moje notatki">
+
+    <VerticalStackLayout Margin="20" Spacing="15">
+
+        <!-- Poziomy układ z polem edycyjnym i przyciskiem -->
+        <HorizontalStackLayout Spacing="10">
+            <Entry x:Name="NotatkaEntry"
+                   WidthRequest="220"
+                   Placeholder="Nowy element" />
+
+            <Button x:Name="DodajButton"
+                    Text="DODAJ"
+                    BackgroundColor="#DC143C"
+                    TextColor="White"
+                    Clicked="OnDodajClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Widok listy z widocznym separatorem w kolorze Crimson (#DC143C) -->
+        <ListView x:Name="NotatkiListView"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="#DC143C">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding .}" TextColor="Black" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
